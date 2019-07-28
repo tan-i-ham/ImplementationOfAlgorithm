@@ -40,4 +40,25 @@ public class SortAlgorithm {
         arr[x] = temp;
         return arr;
     }
+
+    public static int[] InsertionSort(int[] input) {
+        // previous i-th elements already sorted
+        for (int i = 1; i < input.length; i++) {
+            int pivot = input[i];
+            int hole = 0;
+            for (int j = i; j > 0; j--) {
+                if (pivot < input[j - 1]) {
+                    input[j] = input[j - 1];
+                } else {
+                    hole = j;
+                    break;
+
+                }
+
+            }
+            input[hole] = pivot;
+        }
+
+        return input;
+    }
 }
