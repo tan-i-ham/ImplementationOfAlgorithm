@@ -19,7 +19,7 @@ public class Main {
         int[] output2 = SortAlgorithm.BubbleSort(input2);
         System.out.println("After bubble sorting: " + Arrays.toString(output2));
 
-        int[] input3 = {33, 9, 71, 29, 6};
+        int[] input3 = {5, 4, 2, 1, 3};
         System.out.println("Before insertion sorting: " + Arrays.toString(input3));
         int[] output3 = SortAlgorithm.InsertionSort(input3);
         System.out.println("After insertion sorting: " + Arrays.toString(output3));

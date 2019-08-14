@@ -1,5 +1,7 @@
 package com.hannah.algorithm.sorting;
 
+import java.util.Arrays;
+
 public class SortAlgorithm {
 
     public final static int[] SelectionSort(int[] input) {
@@ -22,14 +24,14 @@ public class SortAlgorithm {
 
     public static int[] BubbleSort(int[] input) {
         int[] ans = input;
-
+    // the maximum number will be bubble up every outer round
         for (int i = 1; i < input.length; i++) {
             for (int j = 0; j < input.length - i; j++) {
                 if (input[j] > input[j + 1]) {
                     ans = swap(input, j, j + 1);
                 }
             }
-
+            System.out.println("sorting: " + Arrays.toString(ans));
         }
         return ans;
     }
@@ -41,24 +43,30 @@ public class SortAlgorithm {
         return arr;
     }
 
-    public static int[] InsertionSort(int[] input) {
+    public static int[] InsertionSort(int[] arr) {
         // previous i-th elements already sorted
-        for (int i = 1; i < input.length; i++) {
-            int pivot = input[i];
+        for (int outer = 1; outer < arr.length; outer++) {
+            int temp = arr[outer];
             int hole = 0;
-            for (int j = i; j > 0; j--) {
-                if (pivot < input[j - 1]) {
-                    input[j] = input[j - 1];
+            for (int inner = outer; inner > 0; inner--) {
+                if (temp < arr[inner - 1]) {
+                    // shift num greater than temp to right, in order to make room for insert
+                    // shift
+                    arr[inner] = arr[inner - 1];
                 } else {
-                    hole = j;
+                    // temp is greater than elements before the inner-1
+                    // so record the index which temp should be insert
+                    hole = inner;
                     break;
 
                 }
 
             }
-            input[hole] = pivot;
+            // insert
+            arr[hole] = temp;
+            System.out.println("sorting: " + Arrays.toString(arr));
         }
 
-        return input;
+        return arr;
     }
 }
