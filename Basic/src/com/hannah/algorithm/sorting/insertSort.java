@@ -78,18 +78,30 @@ class ArrayIns {
     //--------------------------------------------------------------
     public void insertionSort() {
         int in, out;
+        int copyCount = 0;
+        int compareCount = 0;
 
         for (out = 1; out < nElems; out++)     // out is dividing line
         {
             long temp = a[out];            // remove marked item
             in = out;                      // start shifts at out
-            while (in > 0 && a[in - 1] >= temp) // until one is smaller,
-            {
-                a[in] = a[in - 1];            // shift item to right
-                --in;                       // go left one position
+            while (in > 0) { // until one is smaller,
+                compareCount++;
+                if (a[in - 1] >= temp) {
+                    a[in] = a[in - 1];            // shift item to right
+                                           // go left one position
+                    copyCount++;
+                }
+                else{
+                    break;
+                }
+                --in;
             }
             a[in] = temp;                  // insert marked item
         }  // end for
+
+        System.out.println("total copy count: " + copyCount);
+        System.out.println("total compare count: " + compareCount);
     }  // end insertionSort()
 
 //--------------------------------------------------------------
@@ -127,6 +139,20 @@ class InsertSortApp {
         arr.noDups();
 //        arr.insert(4);
         arr.display();
+
+        ArrayIns arr2 = new ArrayIns(10);
+        arr2.insert(1);
+        arr2.insert(2);
+        arr2.insert(4);
+        arr2.insert(5);
+        arr2.insert(8);
+        arr2.insert(7);
+        arr2.insert(9);
+        arr2.insert(10);
+
+        arr2.display();
+        arr2.insertionSort();
+
 
     }  // end main()
 }  // end class InsertSortApp
