@@ -17,6 +17,7 @@ public class Queue {
     }
 
     public void insert(long num) {
+        System.out.println("Insert: " + num);
         if (rear == maxSize - 1) {
             rear = -1;
         }
@@ -25,7 +26,8 @@ public class Queue {
     }
 
     public long remove() {
-        long temp = queueArray[front];
+        long temp = queueArray[front++];
+        System.out.println("Remove: " + temp);
         if (front == maxSize) {
             front = 0;
         }
@@ -49,8 +51,35 @@ public class Queue {
         return nElement;
     }
 
+    /**
+     * Programming Project 4-1
+     */
     public void display() {
-        
+        if (nElement == 0) {
+            System.out.println("The queue is empty now.");
+        } else {
+            System.out.print("[front -> rear]:");
+            int i = front;
+            while (i != rear) {
+                System.out.print(queueArray[i] + " ");
+                i++;
+                if (i == maxSize) {
+                    i = 0;
+                    if (i == rear) {
+                        System.out.print(queueArray[rear] + " ");
+                        break;
+                    }
+                }
+                if (i == rear) {
+                    System.out.print(queueArray[rear] + " ");
+                    break;
+                }
+
+
+            }
+
+            System.out.println("[end]");
+        }
     }
 
 }
