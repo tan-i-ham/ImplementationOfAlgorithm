@@ -15,7 +15,7 @@ public class Deque {
         maxSize = s;
         dequeArray = new long[maxSize];
         front = 0;
-        rear = -1;
+        rear = 0;
         nElement = 0;
     }
 
@@ -24,28 +24,44 @@ public class Deque {
 //        if (rear == maxSize - 1) {
 //            rear = -1;
 //        }
+//
+//        if (nElement == 0) {
+//            dequeArray[++rear] = num;
+//        } else {
+//            int oldRear = rear;
+//            while (oldRear>0) {
+//                dequeArray[oldRear+1]=dequeArray[oldRear];
+//            }
+//
+//        }
+
+
+        dequeArray[front--] = num;
+        // deal with wraparound
         if (front < 0) {
             front = maxSize - 1;
-        } else {
-            dequeArray[front--] = num;
         }
-
 
         nElement++;
     }
 
     public void removeLeft() {
-        long numRemoved = dequeArray[front++];
+        long numRemoved = dequeArray[++front];
         System.out.println(String.format("%d be removed.", numRemoved));
+        // deal with wraparound
+        if (front >= maxSize - 1) {
+            front = -1;
+        }
         nElement--;
     }
 
     public void insertRight(long num) {
+        dequeArray[++rear] = num;
         // deal with wraparound
         if (rear == maxSize - 1) {
             rear = -1;
         }
-        dequeArray[++rear] = num;
+
         nElement++;
     }
 
@@ -68,10 +84,18 @@ public class Deque {
             System.out.println("The queue is empty now.");
         } else {
             System.out.print("[front -> rear]:");
-            for (int i = front; i < nElement; i++) {
-                System.out.print(dequeArray[i]);
-                
+            if (front < rear) {
+                for (int i = front + 1; i <= nElement ; i++) {
+                    System.out.print(dequeArray[i % maxSize]);
+                    System.out.print(" ");
+                }
+            } else {
+                for (int i = front + 1; i <= front + nElement; i++) {
+                    System.out.print(dequeArray[i % maxSize]);
+                    System.out.print(" ");
+                }
             }
+
 
             System.out.println("[end]");
         }

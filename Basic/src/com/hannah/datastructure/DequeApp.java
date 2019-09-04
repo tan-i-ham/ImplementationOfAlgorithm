@@ -9,28 +9,35 @@ public class DequeApp {
 
         deque.insertLeft(123);
         deque.display();
-
-        deque.insertLeft(654);
+//
+        deque.insertRight(654);
         deque.display();
 
         deque.insertLeft(42);
+        deque.display();
 
-
-        deque.insertLeft(9);
+        deque.insertRight(9);
+        deque.display();
         deque.insertLeft(1);
 
 
         deque.display();
-
 //        System.out.println(deque.isFull());
 
         deque.removeLeft();
-
         deque.display();
-        deque.insertLeft(333);
-
+        deque.removeLeft();
+        deque.display();
+        deque.removeLeft();
+        deque.display();
+        deque.removeLeft();
+        deque.display();
+        deque.removeLeft();
+        deque.display();
+//        deque.insertLeft(333);
+//
 
 //        deque.removeRight();
-        deque.display();
+//        deque.display();
     }
 }
