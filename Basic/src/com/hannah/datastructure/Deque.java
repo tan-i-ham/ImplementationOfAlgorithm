@@ -46,12 +46,13 @@ public class Deque {
     }
 
     public void removeLeft() {
-        long numRemoved = dequeArray[++front];
-        System.out.println(String.format("%d be removed.", numRemoved));
+
         // deal with wraparound
         if (front >= maxSize - 1) {
             front = -1;
         }
+        long numRemoved = dequeArray[++front];
+        System.out.println(String.format("%d be removed.", numRemoved));
         nElement--;
     }
 
@@ -84,16 +85,16 @@ public class Deque {
             System.out.println("The queue is empty now.");
         } else {
             System.out.print("[front -> rear]:");
-            if (front < rear) {
-                for (int i = front + 1; i <= nElement ; i++) {
-                    System.out.print(dequeArray[i % maxSize]);
-                    System.out.print(" ");
-                }
-            } else {
+//            if (front < rear) {
                 for (int i = front + 1; i <= front + nElement; i++) {
                     System.out.print(dequeArray[i % maxSize]);
                     System.out.print(" ");
-                }
+//                }
+//            } else {
+//                for (int i = front + 1; i <= front + nElement; i++) {
+//                    System.out.print(dequeArray[i % maxSize]);
+//                    System.out.print(" ");
+//                }
             }
 
 
