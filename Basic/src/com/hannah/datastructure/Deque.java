@@ -20,55 +20,44 @@ public class Deque {
     }
 
     public void insertLeft(long num) {
-        // deal with wraparound
-//        if (rear == maxSize - 1) {
-//            rear = -1;
-//        }
-//
-//        if (nElement == 0) {
-//            dequeArray[++rear] = num;
-//        } else {
-//            int oldRear = rear;
-//            while (oldRear>0) {
-//                dequeArray[oldRear+1]=dequeArray[oldRear];
-//            }
-//
-//        }
-
-
         dequeArray[front--] = num;
         // deal with wraparound
         if (front < 0) {
             front = maxSize - 1;
         }
+        System.out.println(String.format("%d be inserted to left.", num));
 
         nElement++;
     }
 
     public void removeLeft() {
-
         // deal with wraparound
         if (front >= maxSize - 1) {
             front = -1;
         }
         long numRemoved = dequeArray[++front];
-        System.out.println(String.format("%d be removed.", numRemoved));
+        System.out.println(String.format("%d be removed from left", numRemoved));
         nElement--;
     }
 
     public void insertRight(long num) {
-        dequeArray[++rear] = num;
         // deal with wraparound
         if (rear == maxSize - 1) {
             rear = -1;
         }
-
+        dequeArray[++rear] = num;
+        System.out.println(String.format("%d be inserted to right.", num));
         nElement++;
     }
 
     public void removeRight() {
+        // deal with wraparound
+        if (rear < 0) {
+            rear = maxSize - 1;
+        }
+
         long numRemoved = dequeArray[rear--];
-        System.out.println(String.format("%d be removed.", numRemoved));
+        System.out.println(String.format("%d be removed from right", numRemoved));
         nElement--;
     }
 
@@ -85,20 +74,12 @@ public class Deque {
             System.out.println("The queue is empty now.");
         } else {
             System.out.print("[front -> rear]:");
-//            if (front < rear) {
-                for (int i = front + 1; i <= front + nElement; i++) {
-                    System.out.print(dequeArray[i % maxSize]);
-                    System.out.print(" ");
-//                }
-//            } else {
-//                for (int i = front + 1; i <= front + nElement; i++) {
-//                    System.out.print(dequeArray[i % maxSize]);
-//                    System.out.print(" ");
-//                }
+            for (int i = front + 1; i <= front + nElement; i++) {
+                System.out.print(dequeArray[i % maxSize]);
+                System.out.print(" ");
             }
 
-
-            System.out.println("[end]");
+            System.out.println(" ");
         }
     }
 }
