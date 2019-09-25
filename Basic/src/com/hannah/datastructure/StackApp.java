@@ -5,7 +5,7 @@ package com.hannah.datastructure;
  */
 public class StackApp {
     public static void main(String[] args) {
-        StackY firstStack = new StackY(10);
+        StackX firstStack = new StackX(10);
 
         firstStack.push(2);
         firstStack.push(14);
@@ -15,13 +15,17 @@ public class StackApp {
         firstStack.display();
 
         firstStack.peek();
-        System.out.println("==== pop one element ====");
 
         firstStack.pop();
+        firstStack.display();
+        firstStack.pop();
+        firstStack.display();
         firstStack.peek();
         firstStack.push(134);
 
         firstStack.display();
+
+
 
     }
 }
