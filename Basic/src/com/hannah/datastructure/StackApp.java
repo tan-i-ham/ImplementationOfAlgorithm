@@ -25,7 +25,16 @@ public class StackApp {
 
         firstStack.display();
 
-
-
+        System.out.println("======== implement by linked list");
+        StackByLinkedList stack = new StackByLinkedList();
+        stack.push(12);
+        stack.push(4);
+        stack.push(99);
+        System.out.println(stack.peek());
+        stack.displayStack();
+        stack.pop();
+        stack.displayStack();
+        stack.pop();
+        stack.displayStack();
     }
 }
