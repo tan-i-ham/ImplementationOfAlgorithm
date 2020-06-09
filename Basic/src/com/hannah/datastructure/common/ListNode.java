@@ -1,8 +1,8 @@
-package com.hannah.datastructure;
+package com.hannah.datastructure.common;
 
 public class ListNode {
-    int value;
-    ListNode next;
+    public int value;
+    public ListNode next;
 
     public ListNode(int value) {
         this.value = value;

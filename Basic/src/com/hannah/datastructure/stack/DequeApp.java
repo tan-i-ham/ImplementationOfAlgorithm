@@ -1,4 +1,4 @@
-package com.hannah.datastructure;
+package com.hannah.datastructure.stack;
 
 /**
  * @author yihan.a.chen
@@ -9,7 +9,7 @@ public class DequeApp {
 
         deque.insertRight(123);
         deque.display();
-//
+
         deque.insertRight(654);
         deque.display();
 

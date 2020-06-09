@@ -1,5 +1,7 @@
 package com.hannah.datastructure.tree;
 
+import com.hannah.datastructure.common.TreeNode;
+
 public class BinaryTreeApp {
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();

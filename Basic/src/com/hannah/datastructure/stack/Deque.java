@@ -1,4 +1,4 @@
-package com.hannah.datastructure;
+package com.hannah.datastructure.stack;
 
 /**
  * @author yihan.a.chen

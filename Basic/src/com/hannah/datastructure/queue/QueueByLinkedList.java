@@ -1,5 +1,7 @@
 package com.hannah.datastructure.queue;
 
+import com.hannah.datastructure.common.ListNode;
+
 public class QueueByLinkedList {
 
     ListNode head;

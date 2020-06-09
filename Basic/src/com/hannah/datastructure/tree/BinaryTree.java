@@ -1,5 +1,7 @@
 package com.hannah.datastructure.tree;
 
+import com.hannah.datastructure.common.TreeNode;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

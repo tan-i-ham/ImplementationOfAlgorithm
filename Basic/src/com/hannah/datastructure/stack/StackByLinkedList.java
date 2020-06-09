@@ -1,10 +1,12 @@
-package com.hannah.datastructure;
+package com.hannah.datastructure.stack;
+
+import com.hannah.datastructure.common.ListNode;
 
 import java.util.EmptyStackException;
 
 public class StackByLinkedList {
-    private ListNode head;
-    private int size;
+    ListNode head;
+    int size;
 
     public void push(int newVal) {
         ListNode node = new ListNode(newVal);
